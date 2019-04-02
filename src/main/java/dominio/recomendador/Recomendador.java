@@ -1,6 +1,7 @@
 package dominio.recomendador;
 
 import dominio.ropa.Ropa;
+import java.util.ArrayList;
 
 public class Recomendador {
 
@@ -13,7 +14,10 @@ public class Recomendador {
         return single_instance;
     }
 
-    private Ropa[] obtenerRecomendaciones (Ropa[] ropa) {
-        return null;
+    public ArrayList<ArrayList<Ropa>> obtenerRecomendaciones (ArrayList<Ropa> ropa) {
+//        ArrayList<Ropa> recomendacion = new ArrayList<>();
+
+        ArrayList<ArrayList<Ropa>> recomendaciones = new ArrayList<>();
+        return recomendaciones;
     }
 }

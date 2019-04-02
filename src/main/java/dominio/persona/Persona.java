@@ -1,17 +1,20 @@
 package dominio.persona;
 
+import dominio.recomendador.Recomendador;
 import dominio.ropa.Ropa;
+
+import java.util.ArrayList;
 
 public class Persona {
     public String nombre;
-    public Ropa[] ropa;
+    public ArrayList<Ropa> ropa;
 
     public Persona (String unNombre) {
         this.nombre = unNombre;
     }
 
-    public Ropa[] obtenerRecomendaciones () {
-        return ropa;
+    public ArrayList<ArrayList<Ropa>> obtenerRecomendaciones () {
+        return Recomendador.getInstance().obtenerRecomendaciones(this.ropa);
     }
 
 
@@ -21,7 +24,7 @@ public class Persona {
         return nombre;
     }
 
-    public Ropa[] getRopa() {
+    public ArrayList<Ropa> getRopa() {
         return ropa;
     }
 
@@ -30,7 +33,7 @@ public class Persona {
         this.nombre = nombre;
     }
 
-    public void setRopa(Ropa[] ropa) {
+    public void setRopa(ArrayList<Ropa> ropa) {
         this.ropa = ropa;
     }
 }
