@@ -31,4 +31,8 @@ public abstract class Ropa {
     public void RopaTipo(RopaTipo tipo) {
         this.tipo = tipo;
     }
+
+    public Boolean sePuedeUsarPara(TipoIndumentaria tipoIndumentaria) {
+        return this.tipo.sirvePara(tipoIndumentaria);
+    }
 }
