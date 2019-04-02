@@ -1,10 +1,12 @@
 package dominio.ropa;
 
+import dominio.ropa.ropaTipo.RopaTipo;
+
 public abstract class Ropa {
     protected String nombre;
-    protected TipoIndumentaria tipo;
+    protected RopaTipo tipo;
 
-    enum TipoIndumentaria {
+    public enum TipoIndumentaria {
         TORSO,
         PIERNAS,
         PIES,
@@ -22,11 +24,11 @@ public abstract class Ropa {
         this.nombre = nombre;
     }
 
-    public TipoIndumentaria getTipo() {
+    public RopaTipo getTipo() {
         return tipo;
     }
 
-    public void TipoIndumentaria(TipoIndumentaria tipo) {
+    public void RopaTipo(RopaTipo tipo) {
         this.tipo = tipo;
     }
 }

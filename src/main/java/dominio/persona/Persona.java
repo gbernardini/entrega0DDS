@@ -1,14 +1,16 @@
 package dominio.persona;
 
+import dominio.ropa.Ropa;
+
 public class Persona {
     public String nombre;
-    public String[] ropa;
+    public Ropa[] ropa;
 
     public Persona (String unNombre) {
         this.nombre = unNombre;
     }
 
-    public String[] obtenerRecomendaciones () {
+    public Ropa[] obtenerRecomendaciones () {
         return ropa;
     }
 
@@ -19,7 +21,7 @@ public class Persona {
         return nombre;
     }
 
-    public String[] getRopa() {
+    public Ropa[] getRopa() {
         return ropa;
     }
 
@@ -28,7 +30,7 @@ public class Persona {
         this.nombre = nombre;
     }
 
-    public void setRopa(String[] ropa) {
+    public void setRopa(Ropa[] ropa) {
         this.ropa = ropa;
     }
 }
