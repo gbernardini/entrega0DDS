@@ -10,7 +10,7 @@ public abstract class Ropa {
         TORSO,
         PIERNAS,
         PIES,
-        ACCESORIO;
+        ACCESORIO
     }
 
     public Ropa (String unNombre) {
