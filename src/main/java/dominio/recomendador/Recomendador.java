@@ -1,7 +1,9 @@
 package dominio.recomendador;
 
-import dominio.ropa.Ropa;
-import java.util.ArrayList;
+import dominio.Placard;
+import dominio.RecomendacionInvalidaException;
+import dominio.ropa.Prenda;
+import dominio.ropa.Recomendacion;
 
 public class Recomendador {
 
@@ -14,10 +16,12 @@ public class Recomendador {
         return single_instance;
     }
 
-    public ArrayList<ArrayList<Ropa>> obtenerRecomendaciones (ArrayList<Ropa> ropa) {
-//        ArrayList<Ropa> recomendacion = new ArrayList<>();
+    public Recomendacion obtenerRecomendacion (Placard placard) throws RecomendacionInvalidaException {
+        Recomendacion recomendacion = new Recomendacion(placard.obtenerUnaPrendaDelTipo(Prenda.TipoIndumentaria.TORSO),
+                                                    placard.obtenerUnaPrendaDelTipo(Prenda.TipoIndumentaria.PIERNAS),
+                                                    placard.obtenerUnaPrendaDelTipo(Prenda.TipoIndumentaria.PIES),
+                                                    placard.obtenerUnaPrendaDelTipo(Prenda.TipoIndumentaria.ACCESORIO));
 
-        ArrayList<ArrayList<Ropa>> recomendaciones = new ArrayList<>();
-        return recomendaciones;
+        return recomendacion;
     }
 }

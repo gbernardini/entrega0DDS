@@ -1,12 +1,12 @@
 package dominio.ropa.ropaTipo;
 
-import dominio.ropa.Ropa;
+import dominio.ropa.Prenda;
 
 public class RopaTipoPiernas implements RopaTipo {
 
 
     @Override
-    public Boolean sirvePara(Ropa.TipoIndumentaria tipoIndumentaria) {
-        return tipoIndumentaria == Ropa.TipoIndumentaria.PIERNAS;
+    public Boolean sirvePara(Prenda.TipoIndumentaria tipoIndumentaria) {
+        return tipoIndumentaria == Prenda.TipoIndumentaria.PIERNAS;
     }
 }

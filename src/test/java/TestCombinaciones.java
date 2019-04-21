@@ -1,8 +1,11 @@
+import dominio.Placard;
+import dominio.RecomendacionInvalidaException;
 import dominio.persona.Persona;
 import dominio.ropa.*;
 import junit.framework.TestCase;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class TestCombinaciones extends TestCase {
 
@@ -15,51 +18,49 @@ public class TestCombinaciones extends TestCase {
 
 //        ROPA
 
-        RopaTorso remeraCorta = new RopaTorso("remera manga corta");
-        RopaTorso remeraLarga = new RopaTorso("remera manga larga");
+        PrendaTorso remeraCorta = new PrendaTorso("remera manga corta");
+        PrendaTorso remeraLarga = new PrendaTorso("remera manga larga");
 
-        RopaPiernas pantalonCorto = new RopaPiernas("pantalon corto");
-        RopaPiernas pantalonLargo = new RopaPiernas("pantalon largo");
+        PrendaPiernas pantalonCorto = new PrendaPiernas("pantalon corto");
+        PrendaPiernas pantalonLargo = new PrendaPiernas("pantalon largo");
 
-        RopaPies zapatos = new RopaPies("zapatos");
-        RopaPies zapatillas = new RopaPies("zapatillas");
+        PrendaPies zapatos = new PrendaPies("zapatos");
+        PrendaPies zapatillas = new PrendaPies("zapatillas");
 
-        RopaAccesorio collar = new RopaAccesorio("collar");
-        RopaAccesorio aros = new RopaAccesorio("aros");
+        PrendaAccesorio collar = new PrendaAccesorio("collar");
+        PrendaAccesorio aros = new PrendaAccesorio("aros");
 
 //        PERSONAS
-        carlos = new Persona("Carlos");
-        pedro = new Persona("Pedro");
 
-        ArrayList<Ropa> ropaCarlos = new ArrayList<>();
-        ropaCarlos.add(remeraCorta);
-        ropaCarlos.add(remeraLarga);
-        ropaCarlos.add(pantalonCorto);
-        ropaCarlos.add(zapatillas);
-        ropaCarlos.add(zapatos);
-        ropaCarlos.add(aros);
+        List<Prenda> prendaCarlos = new ArrayList<>();
+        prendaCarlos.add(remeraCorta);
+        prendaCarlos.add(remeraLarga);
+        prendaCarlos.add(pantalonCorto);
+        prendaCarlos.add(zapatillas);
+        prendaCarlos.add(zapatos);
+        prendaCarlos.add(aros);
 
-        ArrayList<Ropa> ropaPedro = new ArrayList<>();
-        ropaCarlos.add(remeraCorta);
-        ropaCarlos.add(remeraLarga);
-        ropaCarlos.add(pantalonCorto);
-        ropaCarlos.add(pantalonLargo);
-        ropaCarlos.add(zapatos);
-        ropaCarlos.add(zapatillas);
-        ropaCarlos.add(collar);
+        List<Prenda> prendaPedro = new ArrayList<>();
+        prendaCarlos.add(remeraCorta);
+        prendaCarlos.add(remeraLarga);
+        prendaCarlos.add(zapatos);
+        prendaCarlos.add(zapatillas);
+        prendaCarlos.add(collar);
 
 
-        carlos.setRopa(ropaCarlos);
-        pedro.setRopa(ropaPedro);
+        carlos = new Persona("Carlos",prendaCarlos);
+        pedro = new Persona("Pedro",prendaPedro);
 
     }
 
     public void testPruebaUsoRemera() {
-        assertEquals(carlos.getRopa().get(0).sePuedeUsarPara(Ropa.TipoIndumentaria.ACCESORIO),Boolean.FALSE);
+        assertEquals(carlos.getPlacard().getPrendas().get(0).sePuedeUsarPara(Prenda.TipoIndumentaria.ACCESORIO),Boolean.FALSE);
     }
 
     public void testPruebaUsoPantalon() {
-        assertEquals(carlos.getRopa().get(2).sePuedeUsarPara(Ropa.TipoIndumentaria.PIERNAS),Boolean.TRUE);
+        assertEquals(carlos.getPlacard().getPrendas().get(2).sePuedeUsarPara(Prenda.TipoIndumentaria.PIERNAS),Boolean.TRUE);
+    }
 
+    public void testPruebaExcepcion() throws RecomendacionInvalidaException {
     }
 }

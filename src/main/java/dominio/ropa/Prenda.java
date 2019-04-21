@@ -2,9 +2,9 @@ package dominio.ropa;
 
 import dominio.ropa.ropaTipo.RopaTipo;
 
-public abstract class Ropa {
-    protected String nombre;
-    protected RopaTipo tipo;
+public abstract class Prenda {
+    private String nombre;
+    RopaTipo tipo;
 
     public enum TipoIndumentaria {
         TORSO,
@@ -13,7 +13,7 @@ public abstract class Ropa {
         ACCESORIO
     }
 
-    public Ropa (String unNombre) {
+    public Prenda(String unNombre) {
         this.nombre = unNombre;
     }
     public String getNombre() {

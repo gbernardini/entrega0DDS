@@ -1,20 +1,24 @@
 package dominio.persona;
 
+import dominio.Placard;
+import dominio.RecomendacionInvalidaException;
 import dominio.recomendador.Recomendador;
-import dominio.ropa.Ropa;
+import dominio.ropa.Prenda;
+import dominio.ropa.Recomendacion;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public class Persona {
     public String nombre;
-    public ArrayList<Ropa> ropa;
+    public Placard placard;
 
-    public Persona (String unNombre) {
+    public Persona (String unNombre, List<Prenda> prendas) {
         this.nombre = unNombre;
+        this.placard = new Placard(prendas);
     }
 
-    public ArrayList<ArrayList<Ropa>> obtenerRecomendaciones () {
-        return Recomendador.getInstance().obtenerRecomendaciones(this.ropa);
+    public Recomendacion obtenerRecomendaciones () throws RecomendacionInvalidaException {
+        return Recomendador.getInstance().obtenerRecomendacion(this.placard);
     }
 
 
@@ -24,8 +28,8 @@ public class Persona {
         return nombre;
     }
 
-    public ArrayList<Ropa> getRopa() {
-        return ropa;
+    public Placard getPlacard() {
+        return placard;
     }
 
     // SETTER
@@ -33,8 +37,8 @@ public class Persona {
         this.nombre = nombre;
     }
 
-    public void setRopa(ArrayList<Ropa> ropa) {
-        this.ropa = ropa;
+    public void setPlacard(Placard placard) {
+        this.placard = placard;
     }
 }
 

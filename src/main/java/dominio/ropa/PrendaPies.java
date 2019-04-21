@@ -2,9 +2,9 @@ package dominio.ropa;
 
 import dominio.ropa.ropaTipo.RopaTipoPies;
 
-public class RopaPies extends Ropa{
+public class PrendaPies extends Prenda {
 
-    public RopaPies (String nombre) {
+    public PrendaPies(String nombre) {
         super(nombre);
         this.tipo = new RopaTipoPies();
     }

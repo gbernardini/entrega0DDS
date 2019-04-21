@@ -1,8 +1,8 @@
 package dominio.ropa.ropaTipo;
 
-import dominio.ropa.Ropa;
+import dominio.ropa.Prenda;
 
 public interface RopaTipo {
 
-    Boolean sirvePara(Ropa.TipoIndumentaria tipoIndumentaria);
+    Boolean sirvePara(Prenda.TipoIndumentaria tipoIndumentaria);
 }
