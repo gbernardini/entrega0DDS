@@ -17,7 +17,7 @@ public class Persona {
         this.placard = new Placard(prendas);
     }
 
-    public Recomendacion obtenerRecomendaciones () throws RecomendacionInvalidaException {
+    public Recomendacion obtenerRecomendacion () throws RecomendacionInvalidaException {
         return Recomendador.getInstance().obtenerRecomendacion(this.placard);
     }
 

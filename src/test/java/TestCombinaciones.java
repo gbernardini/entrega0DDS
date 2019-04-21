@@ -11,6 +11,11 @@ public class TestCombinaciones extends TestCase {
 
     private Persona carlos;
     private Persona pedro;
+    private Persona juan;
+    private PrendaTorso torso;
+    private PrendaPiernas piernas;
+    private PrendaPies pies;
+    private PrendaAccesorio accesorio;
 
     @Override
     protected void setUp() throws Exception {
@@ -19,38 +24,41 @@ public class TestCombinaciones extends TestCase {
 //        ROPA
 
         PrendaTorso remeraCorta = new PrendaTorso("remera manga corta");
-        PrendaTorso remeraLarga = new PrendaTorso("remera manga larga");
+        torso = new PrendaTorso("remera manga larga");
 
         PrendaPiernas pantalonCorto = new PrendaPiernas("pantalon corto");
-        PrendaPiernas pantalonLargo = new PrendaPiernas("pantalon largo");
+        piernas = new PrendaPiernas("pantalon largo");
 
         PrendaPies zapatos = new PrendaPies("zapatos");
-        PrendaPies zapatillas = new PrendaPies("zapatillas");
+        pies = new PrendaPies("zapatillas");
 
         PrendaAccesorio collar = new PrendaAccesorio("collar");
-        PrendaAccesorio aros = new PrendaAccesorio("aros");
+        accesorio = new PrendaAccesorio("aros");
 
 //        PERSONAS
 
         List<Prenda> prendaCarlos = new ArrayList<>();
         prendaCarlos.add(remeraCorta);
-        prendaCarlos.add(remeraLarga);
+        prendaCarlos.add(torso);
         prendaCarlos.add(pantalonCorto);
-        prendaCarlos.add(zapatillas);
+        prendaCarlos.add(pies);
         prendaCarlos.add(zapatos);
-        prendaCarlos.add(aros);
+        prendaCarlos.add(accesorio);
 
         List<Prenda> prendaPedro = new ArrayList<>();
-        prendaCarlos.add(remeraCorta);
-        prendaCarlos.add(remeraLarga);
-        prendaCarlos.add(zapatos);
-        prendaCarlos.add(zapatillas);
-        prendaCarlos.add(collar);
+        prendaPedro.add(torso);
+        prendaPedro.add(piernas);
+        prendaPedro.add(pies);
+        prendaPedro.add(accesorio);
 
+
+        List<Prenda> prendaJuan = new ArrayList<>();
+        prendaCarlos.add(remeraCorta);
+        prendaCarlos.add(pantalonCorto);
 
         carlos = new Persona("Carlos",prendaCarlos);
         pedro = new Persona("Pedro",prendaPedro);
-
+        juan = new Persona("juan",prendaJuan);
     }
 
     public void testPruebaUsoRemera() {
@@ -61,6 +69,15 @@ public class TestCombinaciones extends TestCase {
         assertEquals(carlos.getPlacard().getPrendas().get(2).sePuedeUsarPara(Prenda.TipoIndumentaria.PIERNAS),Boolean.TRUE);
     }
 
+    public void testPruebaRecomendacion () throws  RecomendacionInvalidaException {
+        assertEquals(pedro.obtenerRecomendacion(),new Recomendacion(torso,piernas,pies,accesorio));
+    }
+
     public void testPruebaExcepcion() throws RecomendacionInvalidaException {
+        try{
+            juan.obtenerRecomendacion();
+        } catch (RecomendacionInvalidaException exception){
+            assertEquals(1,1);
+        }
     }
 }

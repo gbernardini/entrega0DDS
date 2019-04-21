@@ -36,6 +36,15 @@ public class Recomendacion {
 
     }
 
+    @Override
+    public boolean equals(Object obj) {
+
+        return  this.getPrendaTorso() == ((Recomendacion) obj).getPrendaTorso() &&
+                this.getPrendaPiernas() == ((Recomendacion) obj).getPrendaPiernas() &&
+                this.getPrendaPies() == ((Recomendacion) obj).getPrendaPies() &&
+                this.getPrendaAccesorio() == ((Recomendacion) obj).getPrendaAccesorio() ;
+    }
+
     public Prenda getPrendaTorso() {
         return prendaTorso;
     }
